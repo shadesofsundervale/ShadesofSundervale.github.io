@@ -2,24 +2,7 @@
 <html>
 <head>
   <title>Welcome to My World</title>
-  <style>
-    body {
-      background: linear-gradient(#0f2027, #203a43, #2c5364);
-      color: white;
-      font-family: serif;
-      text-align: center;
-      padding-top: 100px;
-    }
-    input, button {
-      padding: 10px;
-      font-size: 16px;
-      margin: 10px;
-    }
-    .result {
-      margin-top: 30px;
-      font-size: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
@@ -28,41 +11,11 @@
 
 <input type="text" id="nameInput" placeholder="Your Name">
 <br>
-<button onclick="generate()">Generate Your Class</button>
+<button onclick="generateCharacter()">Generate Your Class</button>
 
-<div class="result" id="output"></div>
+<div id="output"></div>
 
-<script>
-function generate() {
-  const name = document.getElementById("nameInput").value || "Unknown Traveler";
-
-  const classes = [
-    "Archer",
-    "Swordmaster",
-    "Pugilist",
-    "Mage",
-    "Shaman",
-    "Druid"
-  ];
-
-  const intros = {
-    Archer: "Your eyes are sharp, your arrows never miss.",
-    Swordmaster: "Steel obeys your will, and battle is your art.",
-    Pugilist: "Your fists carry the weight of a thousand strikes.",
-    Mage: "The arcane flows through your veins.",
-    Shaman: "Spirits whisper secrets only you can hear.",
-    Druid: "Nature bends gently to your presence."
-  };
-
-  const chosen = classes[Math.floor(Math.random() * classes.length)];
-
-  document.getElementById("output").innerHTML = `
-    <p><b>${name}</b>, you are a <b>${chosen}</b>.</p>
-    <p>${intros[chosen]}</p>
-    <p>Welcome to the world.</p>
-  `;
-}
-</script>
-
+<script src="assets/js/main.js"></script>
 </body>
 </html>
+
