@@ -1,99 +1,103 @@
-/* === GLOBAL RESET === */
-* {
-  box-sizing: border-box;
+/* ===== Global ===== */
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0;
 }
 
-/* === PAGE BACKGROUND === */
 body {
-  min-height: 100vh;
-
-  background-image: url("../img/background.jpg");
+  background-image: url("../images/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-family: "Georgia", serif;
   color: #e0e0e0;
+  font-family: "Georgia", serif;
 }
 
-/* === DARK OVERLAY FOR READABILITY === */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: -1;
-}
-
-/* === MAIN CONTENT PANEL === */
-.content {
-  width: 100%;
-  max-width: 600px;
-
+/* ===== Main Card ===== */
+.card {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 40px;
+  width: 420px;
+  border-radius: 16px;
   text-align: center;
-
-  background: rgba(0, 0, 0, 0.7);
-  padding: 40px 30px;
-
-  border-radius: 14px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
 }
 
-/* === HEADINGS === */
+/* ===== Text ===== */
 h1 {
-  font-size: 2.4rem;
+  margin-top: 0;
+}
+
+.subtitle {
+  opacity: 0.85;
   margin-bottom: 20px;
 }
 
-p {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-}
-
-/* === INPUT FIELD === */
-input[type="text"] {
-  width: 80%;
-  padding: 12px;
-
-  background: #111;
-  border: 1px solid #444;
+/* ===== Input & Button ===== */
+input {
+  width: 90%;
+  padding: 10px;
   border-radius: 8px;
-
-  color: #eee;
-  font-size: 1rem;
-  text-align: center;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
-/* === BUTTON === */
 button {
-  margin-top: 20px;
-  padding: 12px 30px;
-
-  background: linear-gradient(135deg, #2c2c2c, #111);
-  border: 1px solid #666;
+  padding: 10px 18px;
   border-radius: 8px;
-
+  border: none;
+  background: #333;
   color: #eee;
-  font-size: 1rem;
+  font-size: 16px;
   cursor: pointer;
-
-  transition: all 0.3s ease;
 }
 
 button:hover {
-  background: linear-gradient(135deg, #444, #222);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  background: #444;
 }
 
-/* === RESULT TEXT === */
-#result {
+/* ===== Output ===== */
+#output {
   margin-top: 25px;
-  font-size: 1.2rem;
+  opacity: 0;
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Traits ===== */
+.traits {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.traits li {
+  margin: 4px 0;
+}
+
+.ending {
+  margin-top: 12px;
+  font-style: italic;
+  opacity: 0.85;
 }
