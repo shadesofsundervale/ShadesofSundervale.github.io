@@ -5,7 +5,7 @@ const CLASSES = [
     flavor: "Steel is not a tool to you — it is an extension of will.",
     description: "Swordmasters perfect combat through discipline and form.",
     traits: ["Perfect Form", "Battle Instinct", "Unbreakable Focus"],
-    ending: "Your blade hums as if it knows what is coming."
+    ending: "Your blade hums as if it knows what is coming!"
   },
   {
     title: "Archer",
@@ -13,7 +13,7 @@ const CLASSES = [
     flavor: "Your arrows find their mark before danger is felt.",
     description: "Archers dominate the battlefield from the shadows.",
     traits: ["Eagle Eye", "Silent Step", "Deadly Precision"],
-    ending: "The wind itself guides your shot."
+    ending: "The wind itself guides your shot!"
   },
   {
     title: "Mage",
@@ -21,7 +21,7 @@ const CLASSES = [
     flavor: "The arcane answers those who dare to listen.",
     description: "Mages bend reality through knowledge and will.",
     traits: ["Mana Flow", "Elemental Mastery", "Spell Weaving"],
-    ending: "The air crackles with latent power."
+    ending: "The air crackles with latent power!"
   }
 ];
 
