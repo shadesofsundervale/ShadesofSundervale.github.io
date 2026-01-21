@@ -1,89 +1,72 @@
-// ==============================
-// CLASS DATABASE
-// ==============================
 const CLASSES = [
   {
-    id: "archer",
-    name: "Archer",
-    role: "Ranged DPS",
-    intro: "You walk the path of the unseen hunter.",
-    description: "Archers master distance, patience, and lethal precision.",
-    traits: ["Keen Eyesight", "Silent Movement", "Deadly Accuracy"],
-    welcome: "The forests whisper your name as you step into the world."
-  },
-  {
-    id: "swordmaster",
-    name: "Swordmaster",
+    title: "Swordmaster",
     role: "Melee DPS",
-    intro: "Steel is not a tool to you — it is an extension of will.",
+    flavor: "Steel is not a tool to you — it is an extension of will.",
     description: "Swordmasters perfect combat through discipline and form.",
-    traits: ["Perfect Form", "Battle Instinct", "Unbreakable Focus"],
-    welcome: "Your blade hums as if it knows what is coming."
+    traits: [
+      "Perfect Form",
+      "Battle Instinct",
+      "Unbreakable Focus"
+    ],
+    ending: "Your blade hums as if it knows what is coming."
   },
   {
-    id: "pugilist",
-    name: "Pugilist",
-    role: "Close Combat",
-    intro: "Your fists speak louder than words.",
-    description: "Pugilists refine the body into a living weapon.",
-    traits: ["Iron Body", "Explosive Strikes", "Endless Stamina"],
-    welcome: "Pain is merely another teacher to you."
+    title: "Archer",
+    role: "Ranged DPS",
+    flavor: "Your arrows find their mark before danger is felt.",
+    description: "Archers dominate the battlefield from the shadows.",
+    traits: [
+      "Eagle Eye",
+      "Silent Step",
+      "Deadly Precision"
+    ],
+    ending: "The wind itself guides your shot."
   },
   {
-    id: "mage",
-    name: "Mage",
-    role: "Arcane Caster",
-    intro: "The arcane does not obey — it bargains.",
-    description: "Mages manipulate reality through knowledge and risk.",
-    traits: ["Spell Weaving", "Mana Control", "Forbidden Knowledge"],
-    welcome: "The air bends subtly in your presence."
-  },
-  {
-    id: "shaman",
-    name: "Shaman",
-    role: "Spiritual Medium",
-    intro: "You walk between worlds, never fully belonging to either.",
-    description: "Shamans commune with spirits and ancestral forces.",
-    traits: ["Spirit Sight", "Totemic Rituals", "Ancestral Guidance"],
-    welcome: "Something unseen has already noticed you."
-  },
-  {
-    id: "druid",
-    name: "Druid",
-    role: "Nature Mystic",
-    intro: "Nature does not speak — it acts.",
-    description: "Druids embody the raw will of the wild.",
-    traits: ["Wildshape", "Natural Harmony", "Primal Magic"],
-    welcome: "Roots stir beneath your feet as you arrive."
+    title: "Mage",
+    role: "Magic DPS",
+    flavor: "The arcane answers those who dare to listen.",
+    description: "Mages bend reality through knowledge and will.",
+    traits: [
+      "Mana Flow",
+      "Elemental Mastery",
+      "Spell Weaving"
+    ],
+    ending: "The air crackles with latent power."
   }
 ];
 
-// ==============================
-// LOGIC
-// ==============================
-function getRandomClass() {
-  const index = Math.floor(Math.random() * CLASSES.length);
-  return CLASSES[index];
-}
-
 function generateCharacter() {
-  const name =
-    document.getElementById("nameInput").value || "Unknown Traveler";
+  const nameInput = document.getElementById("nameInput");
+  const output = document.getElementById("output");
 
-  const chosen = getRandomClass();
+  const name = nameInput.value || "Traveler";
+  const chosen = CLASSES[Math.floor(Math.random() * CLASSES.length)];
 
-  document.getElementById("output").innerHTML = `
-    <h2>${name}, ${chosen.name}</h2>
-    <p><i>${chosen.intro}</i></p>
+  // Reset animation cleanly
+  output.classList.remove("fade-in");
+  output.innerHTML = "";
+  void output.offsetWidth;
 
-    <p><b>Role:</b> ${chosen.role}</p>
+  const traitsHTML = chosen.traits
+    .map(trait => `<li>${trait}</li>`)
+    .join("");
+
+  output.innerHTML = `
+    <h2>${name}, ${chosen.title}</h2>
+    <p><em>${chosen.flavor}</em></p>
+
+    <p><strong>Role:</strong> ${chosen.role}</p>
     <p>${chosen.description}</p>
 
-    <p><b>Traits:</b></p>
-    <ul>
-      ${chosen.traits.map(t => `<li>${t}</li>`).join("")}
+    <h3>Traits</h3>
+    <ul class="traits">
+      ${traitsHTML}
     </ul>
 
-    <p>${chosen.welcome}</p>
+    <p class="ending">${chosen.ending}</p>
   `;
+
+  output.classList.add("fade-in");
 }
