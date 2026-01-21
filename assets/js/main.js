@@ -25,57 +25,29 @@ const CLASSES = [
   }
 ];
 
-const nameInput = document.getElementById("nameInput");
-const output = document.getElementById("output");
-const generateBtn = document.getElementById("generateBtn");
-
-// Generate character
 function generateCharacter() {
-  const name = nameInput.value.trim() || "Traveler";
+  const name = document.getElementById("nameInput").value || "Traveler";
+  const output = document.getElementById("output");
+
   const chosen = CLASSES[Math.floor(Math.random() * CLASSES.length)];
 
   output.classList.remove("fade-in");
   output.innerHTML = "";
-  void output.offsetWidth; // restart animation
+  void output.offsetWidth;
 
-  const traitsHTML = chosen.traits.map(trait => `<li>${trait}</li>`).join("");
+  const traitsHTML = chosen.traits.map(t => `<li>${t}</li>`).join("");
 
   output.innerHTML = `
     <h2>${name}, ${chosen.title}</h2>
     <p><em>${chosen.flavor}</em></p>
     <p><strong>Role:</strong> ${chosen.role}</p>
     <p>${chosen.description}</p>
+
     <h3>Traits</h3>
     <ul class="traits">${traitsHTML}</ul>
+
     <p class="ending">${chosen.ending}</p>
   `;
 
   output.classList.add("fade-in");
-
-  // Animate traits
-  const traitElements = output.querySelectorAll(".traits li");
-  traitElements.forEach((li, i) => {
-    li.style.animation = `fadeInUp 0.5s ease forwards ${i * 0.15}s`;
-  });
 }
-
-generateBtn.addEventListener("click", generateCharacter);
-nameInput.addEventListener("keypress", e => {
-  if (e.key === "Enter") generateCharacter();
-});
-
-// ===== Menu toggle =====
-const menuBtn = document.querySelector(".menu-btn");
-const dropdown = document.querySelector(".dropdown");
-
-menuBtn.addEventListener("click", () => {
-  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-});
-
-// Close menu if clicked outside
-window.addEventListener("click", e => {
-  if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
-    dropdown.style.display = "none";
-  }
-});
-
