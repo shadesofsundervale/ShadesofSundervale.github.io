@@ -7,7 +7,7 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: url("../images/background.jpg") center/cover no-repeat;
+  background: url("../img/background.jpg") center/cover no-repeat;
   position: relative;
   color: #f0f0f0;
   display: flex;
