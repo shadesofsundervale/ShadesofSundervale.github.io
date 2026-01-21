@@ -77,20 +77,15 @@ body::before {
 
 /* ===== Card ===== */
 .card {
-  background: rgba(0,0,0,0.85);
-  max-width: 420px;
-  width: 100%;
-  padding: 40px;
+  background: #000; /* fully opaque removes the column issue */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.7); 
   border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.85);
-  background: rgba(0,0,0,0.9);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
 }
 
 /* ===== Typography ===== */
