@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Welcome to Sundervale</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
-  <main class="card">
-    <h1>Welcome to Sundervale</h1>
-    <p class="subtitle">Enter your name, traveler</p>
+<header class="top-bar">
+  <div class="menu-btn" id="menuBtn">⋮</div>
+  <nav class="menu" id="menu">
+    <a href="gallery.html">Gallery</a>
+    <a href="world.html">World</a>
+  </nav>
+</header>
 
-    <input type="text" id="nameInput" placeholder="Your Name" />
+<main class="center-wrapper">
+  <section class="card">
+    <h1>Welcome to Sundervale!</h1>
+    <p class="subtitle">Please enter your name, Traveler</p>
 
-    <button onclick="generateCharacter()">Generate Your Class</button>
+    <input type="text" id="nameInput" placeholder="Your Name">
+    <button onclick="generateCharacter()">Press to get your class</button>
 
     <div id="output"></div>
-  </main>
+  </section>
+</main>
 
-  <script src="assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
