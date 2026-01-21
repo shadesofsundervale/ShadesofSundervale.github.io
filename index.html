@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Sundervale</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -12,8 +18,7 @@
     <p class="subtitle">Enter your name, traveler</p>
 
     <input type="text" id="nameInput" placeholder="Your Name">
-
-    <button onclick="generateCharacter()">Generate Your Class</button>
+    <button id="generateBtn">Generate Your Class</button>
 
     <div id="output"></div>
   </div>
