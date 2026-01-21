@@ -7,21 +7,26 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: url("../img/background.jpg") center/cover no-repeat;
-  position: relative;
   color: #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+
+  /* Background image */
+  background: url("../img/background.jpg") center center / cover no-repeat fixed;
+
+  /* Fallback color */
+  background-color: #111;
 }
 
+/* Overlay to darken image and make text readable */
 body::before {
   content: '';
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.55); /* slightly darker overlay */
   z-index: -1;
 }
 
@@ -58,6 +63,7 @@ h1 {
 h2 {
   color: #ffcc00;
   font-family: 'Playfair Display', serif;
+  margin-bottom: 6px;
 }
 
 h3 {
@@ -141,4 +147,15 @@ button:hover {
   font-style: italic;
   opacity: 0.85;
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .card {
+    padding: 30px 20px;
+  }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.4rem; }
+  input, button { font-size: 14px; }
+}
+
 
